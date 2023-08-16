@@ -1,0 +1,16 @@
+{
+  "plaid": { "clientId": "CLIENT_ID", "secret": "SECRET" },
+  "bankTokens": {
+    "amex": "ACCESS_TOKEN_AMEX",
+    "tangerine": "ACCESS_TOKEN_TANGERINE",
+    "td": "ACCESS_TOKEN_TD"
+  },
+  "splitwise": {
+    "apiKey": "SPLITWISE_API_KEY",
+    "groupId": "SPLITWISE_GROUP_ID"
+  },
+  "pushBullet": {
+    "apiToken": "PUSHBULLET_API_TOKEN",
+    "targetDevice": "PUSHBULLET_TARGET_DEVICE"
+  }
+}
