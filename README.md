@@ -1,51 +1,39 @@
 # Transaction Tracker
 
-This is a Node.js application that connects to the Plaid API and retrieves transactions from multiple accounts. It then categorizes the transactions and displays them in a readable format.
+Web app & CLI tool that tracks user's payments across different banks. It leverages [Plaid](https://plaid.com/) to retrieve transactions from bank accounts, categorizes them, and displays them in a table.
 
-Note that the application is currently customized to work with my Amex and Tangerine accounts.
+Note that the application is currently customized to work with my TD, Amex, and Tangerine bank accounts. I am gradually working on generalizing it to work with any bank that is supported by Plaid.
 
-## Installation
-
-1. Clone this repository.
-1. Run `yarn install` to install the dependencies.
-
-## Configuration
-
-Check out the _.env.sample_
+![web app table screenshot](https://github.com/samasri/transaction-tracker/assets/12204690/04245cfd-7558-42ae-bbc4-02a790f0bc35)
 
 ## Usage
 
-Check out the package.json scripts:
+This tool is exposed as a web application and a CLI interface. The easier way to use it (how I usually use it) is through the web application. I started it as a CLI tool and since then moved to the web application. But I'm still maintaining the CLI.
 
-- `yarn show`: retrieves transactions from the current pay cycle and displays them in a table.
-- `yarn save`: saves all the transactions from the last few months in csv files inside a _data/_ directory
-  - Each sub-directory represents an account
-  - Each file in a sub-directory represents one month
-- `yarn send`: sends the total transactions in the current pay cycle as a phone notification via pushbullet (configured by env variables)
-- `yarn ignore`: ignores certain transactions when displaying or calculating transaction totals
+Usage instructions:
 
-Note: To customize the pay cycle or the date range for which transactions are displayed, the `getCycleDates` function can be modified in the _./utils/get-transactions.ts_ file.
+- Sign up to [Plaid](https://plaid.com/) and obtain your credentials
+- To use the web app:
+  - Just run `docker-compose up -d`
+  - Once it's loaded, go to _<http://localhost:3000/admin>_ to set up your credentials
+  - Set up your plaid credentials (everything else is optional)
+  - Click "Connect Bank" to connect your bank accounts [Still working on implementing this button]
+  - Go to _<http://localhost:3000/>_ to see your transactions
+- To use the CLI:
+  - Set up the _.env_ based on [.env.sample](./.env.sample)
+  - Run `yarn install`
+  - Run `yarn ts-node ./src/index.ts help` for instructions. Also check out the [package.json scripts](./package.json#L3) for shortcuts
 
-### Required Configuration Files
+Note: To customize the date range for which transactions are displayed, the [`getCycleDates`](./src/lib/date-cycle-detector.ts) function can be modified.
 
-To ignore transactions, the following files are used:
+### Optional Configuration Files
 
-- _./db.td.ids_: comma-separated TD transaction IDs to be ignored. You can create that file using the `ignore-transactions` script.
-- _./db.td.names_: comma-separated TD transaction names to be ignored.
-- _./db.tangerine.names_: comma-separated Tangerine transaction names to be ignored.
-- _./db.amex.names_: comma-separated Amex transaction names to be ignored.
+If the following files exist, the corresponding transactions inside them are ignored:
 
-## Setting up Plaid
+- _./db/[bankName].names_: contains a list of names, separated by newlines. If a transaction from `[bankName]` has a name matching one of the names in this file, the transaction is ignored. This is useful to ignore recurring transactions that have a consistent name.
 
-Transaction tracker utilizes [plaid](https://plaid.com/) to get the transactions. Hence, users must set up the service and obtain credentials before being able to use this package.
+## Architecture
 
-### Get Access Token for Your Bank Account
+Architecture visualizations using [Structurizr](https://docs.structurizr.com/) are found in the [docs](./docs/architecture/)
 
-1. Once you create a [Plaid](https://dashboard.plaid.com/overview) account, set the `CLIENT_ID` and `SECRET` in your .env file
-1. Run the `createLinkToken` function in _create-link.ts_ and get the outputted token
-1. Put this token in the _create-link.html_ file and render the file in a browser
-1. Open the console log in the browser
-1. Enter your credentials for your desired bank account and wait to get the public token in the console log
-1. Use that token as a parameter for `getAccessToken` (in _create-link.ts_) to run it and get the access token
-
-You can now set that token in the .env file and run `yarn start`
+![Overall Architecture](./docs/architecture/Overall.svg)

@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  transaction-tracker:
+    image: transaction-tracker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "${PORT:-3000}:3000"
+    volumes:
+      - ./db:/app/db
+      - ./.env:/app/.env

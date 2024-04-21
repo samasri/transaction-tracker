@@ -1,0 +1,1074 @@
+{
+  "configuration" : {
+    "scope" : "SoftwareSystem"
+  },
+  "description" : "Description",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedAgent" : "structurizr-javascript",
+  "lastModifiedDate" : "2024-04-21T13:38:01Z",
+  "model" : {
+    "people" : [ {
+      "description" : "The person whose transcations are being tracked in this deployment of the system",
+      "id" : "1",
+      "location" : "Unspecified",
+      "name" : "User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "user"
+      },
+      "relationships" : [ {
+        "description" : "Requests table of transactions in the current cycle",
+        "destinationId" : "5",
+        "id" : "70",
+        "properties" : {
+          "structurizr.dsl.identifier" : "7c4f79d2-8d2f-463d-bc13-aca4ba45610a"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Requests table of transactions in the current cycle",
+        "destinationId" : "4",
+        "id" : "71",
+        "linkedRelationshipId" : "70",
+        "sourceId" : "1"
+      }, {
+        "description" : "Requests table of transactions in the current cycle",
+        "destinationId" : "3",
+        "id" : "72",
+        "linkedRelationshipId" : "70",
+        "sourceId" : "1"
+      }, {
+        "description" : "Ignore certain transactions",
+        "destinationId" : "5",
+        "id" : "73",
+        "properties" : {
+          "structurizr.dsl.identifier" : "d327d810-f574-4902-b6c4-1d24f70a041d"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Show ignored transactions",
+        "destinationId" : "5",
+        "id" : "74",
+        "properties" : {
+          "structurizr.dsl.identifier" : "16024397-d189-4dc2-aa4a-c80d632936a4"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Reset ignored transactions",
+        "destinationId" : "5",
+        "id" : "75",
+        "properties" : {
+          "structurizr.dsl.identifier" : "d2f29fa0-a2d3-49e2-a3da-75598a004888"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Save transactions in csv",
+        "destinationId" : "5",
+        "id" : "76",
+        "properties" : {
+          "structurizr.dsl.identifier" : "8849a30f-bec2-4c26-9f1e-59efc58b1755"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Re-sign in to (and update the stored credentials for) a certain bank",
+        "destinationId" : "5",
+        "id" : "77",
+        "properties" : {
+          "structurizr.dsl.identifier" : "60711c1e-04de-47cb-974c-27dc0aa861cd"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Request reloading of payments",
+        "destinationId" : "47",
+        "id" : "78",
+        "properties" : {
+          "structurizr.dsl.identifier" : "df91088e-d155-47fb-9dd3-fd00c77de53a"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Request reloading of payments",
+        "destinationId" : "43",
+        "id" : "79",
+        "linkedRelationshipId" : "78",
+        "sourceId" : "1"
+      } ],
+      "tags" : "Element,Person"
+    }, {
+      "description" : "Cron job that runs every morning at 6AM",
+      "id" : "2",
+      "location" : "Unspecified",
+      "name" : "Cron Job",
+      "properties" : {
+        "structurizr.dsl.identifier" : "cronjob"
+      },
+      "relationships" : [ {
+        "description" : "Send notification to user",
+        "destinationId" : "5",
+        "id" : "80",
+        "properties" : {
+          "structurizr.dsl.identifier" : "eff93fdd-d713-4bdd-8782-4ea69d6380d0"
+        },
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Send notification to user",
+        "destinationId" : "4",
+        "id" : "81",
+        "linkedRelationshipId" : "80",
+        "sourceId" : "2"
+      }, {
+        "description" : "Send notification to user",
+        "destinationId" : "3",
+        "id" : "82",
+        "linkedRelationshipId" : "80",
+        "sourceId" : "2"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "components" : [ {
+          "description" : "Interprets user commands and coordinates the flow of data between components",
+          "documentation" : { },
+          "id" : "5",
+          "name" : "Commander",
+          "properties" : {
+            "structurizr.dsl.identifier" : "commander"
+          },
+          "relationships" : [ {
+            "description" : "Commands sending notification",
+            "destinationId" : "7",
+            "id" : "18",
+            "properties" : {
+              "structurizr.dsl.identifier" : "58784e74-012a-4ed4-8848-bd26ffa92fda"
+            },
+            "sourceId" : "5",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Commands sending notification",
+            "destinationId" : "6",
+            "id" : "19",
+            "linkedRelationshipId" : "18",
+            "sourceId" : "5"
+          }, {
+            "description" : "Commands printing of transactions in the CLI",
+            "destinationId" : "10",
+            "id" : "22",
+            "properties" : {
+              "structurizr.dsl.identifier" : "ac7071bc-d752-45f7-9b47-110d6b12fae1"
+            },
+            "sourceId" : "5",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Requests cycle that today is in",
+            "destinationId" : "11",
+            "id" : "24",
+            "properties" : {
+              "structurizr.dsl.identifier" : "c276e5ae-396b-4c84-9609-f21788f4458b"
+            },
+            "sourceId" : "5",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Requests expenses and balance",
+            "destinationId" : "15",
+            "id" : "26",
+            "properties" : {
+              "structurizr.dsl.identifier" : "46b7c888-46cc-4755-933b-287bf8a6c334"
+            },
+            "sourceId" : "5",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Configures",
+            "destinationId" : "13",
+            "id" : "28",
+            "properties" : {
+              "structurizr.dsl.identifier" : "74db0b07-1346-4aaa-af3c-a469494395f9"
+            },
+            "sourceId" : "5",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Saves transactions",
+            "destinationId" : "16",
+            "id" : "30",
+            "properties" : {
+              "structurizr.dsl.identifier" : "4ec82a77-5572-44c3-862f-e28e6d7137b5"
+            },
+            "sourceId" : "5",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Refreshes and retrieves balance",
+            "destinationId" : "48",
+            "id" : "83",
+            "properties" : {
+              "structurizr.dsl.identifier" : "4ebdb746-a3cd-42b4-b353-f1c45e2f1526"
+            },
+            "sourceId" : "5",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Refreshes and retrieves balance",
+            "destinationId" : "43",
+            "id" : "84",
+            "linkedRelationshipId" : "83",
+            "sourceId" : "5"
+          } ],
+          "tags" : "Element,Component"
+        } ],
+        "documentation" : { },
+        "id" : "4",
+        "name" : "Commander",
+        "properties" : {
+          "structurizr.dsl.identifier" : "commandercontainer"
+        },
+        "relationships" : [ {
+          "description" : "Commands sending notification",
+          "destinationId" : "7",
+          "id" : "20",
+          "linkedRelationshipId" : "18",
+          "sourceId" : "4"
+        }, {
+          "description" : "Commands sending notification",
+          "destinationId" : "6",
+          "id" : "21",
+          "linkedRelationshipId" : "18",
+          "sourceId" : "4"
+        }, {
+          "description" : "Commands printing of transactions in the CLI",
+          "destinationId" : "10",
+          "id" : "23",
+          "linkedRelationshipId" : "22",
+          "sourceId" : "4"
+        }, {
+          "description" : "Requests cycle that today is in",
+          "destinationId" : "11",
+          "id" : "25",
+          "linkedRelationshipId" : "24",
+          "sourceId" : "4"
+        }, {
+          "description" : "Requests expenses and balance",
+          "destinationId" : "15",
+          "id" : "27",
+          "linkedRelationshipId" : "26",
+          "sourceId" : "4"
+        }, {
+          "description" : "Configures",
+          "destinationId" : "13",
+          "id" : "29",
+          "linkedRelationshipId" : "28",
+          "sourceId" : "4"
+        }, {
+          "description" : "Saves transactions",
+          "destinationId" : "16",
+          "id" : "31",
+          "linkedRelationshipId" : "30",
+          "sourceId" : "4"
+        }, {
+          "description" : "Refreshes and retrieves balance",
+          "destinationId" : "48",
+          "id" : "85",
+          "linkedRelationshipId" : "83",
+          "sourceId" : "4"
+        }, {
+          "description" : "Refreshes and retrieves balance",
+          "destinationId" : "43",
+          "id" : "86",
+          "linkedRelationshipId" : "83",
+          "sourceId" : "4"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "components" : [ {
+          "description" : "Connects to Pushbullet for sending notifications to the user's devices",
+          "documentation" : { },
+          "id" : "7",
+          "name" : "Pushbullet Connector",
+          "properties" : {
+            "structurizr.dsl.identifier" : "pushbullet"
+          },
+          "relationships" : [ {
+            "description" : "Retrieves pushbullet credentials",
+            "destinationId" : "17",
+            "id" : "41",
+            "properties" : {
+              "structurizr.dsl.identifier" : "ec26f22b-be1b-4e7f-93cd-151723aca43b"
+            },
+            "sourceId" : "7",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Integrates with the Plaid API to retrieve transaction data from various banks",
+          "documentation" : { },
+          "id" : "8",
+          "name" : "Plaid Connector",
+          "properties" : {
+            "structurizr.dsl.identifier" : "plaid"
+          },
+          "relationships" : [ {
+            "description" : "Retrieves plaid & bank credentials",
+            "destinationId" : "17",
+            "id" : "42",
+            "properties" : {
+              "structurizr.dsl.identifier" : "583154e7-05be-4773-9d91-dc1ad6fe0e7d"
+            },
+            "sourceId" : "8",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Connects to Splitwise to retrieve shared expenses",
+          "documentation" : { },
+          "id" : "9",
+          "name" : "Splitwise Connector",
+          "properties" : {
+            "structurizr.dsl.identifier" : "splitwise"
+          },
+          "relationships" : [ {
+            "description" : "Retrieves splitwise credentials",
+            "destinationId" : "17",
+            "id" : "40",
+            "properties" : {
+              "structurizr.dsl.identifier" : "f9950e05-cf2d-4061-ad77-63440f5355cb"
+            },
+            "sourceId" : "9",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Formats and prints the transaction data in a user-friendly CLI table",
+          "documentation" : { },
+          "id" : "10",
+          "name" : "Transaction Printer",
+          "properties" : {
+            "structurizr.dsl.identifier" : "printer"
+          },
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Detects the date range for transactions to be retrieved, focusing on the cycle that today is in",
+          "documentation" : { },
+          "id" : "11",
+          "name" : "Date Cycle Detector",
+          "properties" : {
+            "structurizr.dsl.identifier" : "date"
+          },
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Stores transaction data locally for quick access and manipulation",
+          "documentation" : { },
+          "id" : "12",
+          "name" : "Database Connector",
+          "properties" : {
+            "structurizr.dsl.identifier" : "databaseconnector"
+          },
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Filters transactions based on configuration that specify transactions and patterns to ignore. It also provides a user-friendly interface to ignore transactions",
+          "documentation" : { },
+          "id" : "13",
+          "name" : "Transaction Filter",
+          "properties" : {
+            "structurizr.dsl.identifier" : "filter"
+          },
+          "relationships" : [ {
+            "description" : "Saves/Retrieves configuration",
+            "destinationId" : "12",
+            "id" : "37",
+            "properties" : {
+              "structurizr.dsl.identifier" : "6f62caad-e7e2-4081-98bf-f57f20d6e123"
+            },
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Retrieves transactions from banks",
+            "destinationId" : "8",
+            "id" : "38",
+            "properties" : {
+              "structurizr.dsl.identifier" : "70a7b45c-1d5e-4b07-a175-bc950da000f6"
+            },
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Requests cycle that today is in",
+            "destinationId" : "11",
+            "id" : "39",
+            "properties" : {
+              "structurizr.dsl.identifier" : "44614bca-f5c9-4f80-9f46-3443d7a8f867"
+            },
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Retrieves transactions from the database and external APIs",
+          "documentation" : { },
+          "id" : "14",
+          "name" : "Transaction Retriever",
+          "properties" : {
+            "structurizr.dsl.identifier" : "retriever"
+          },
+          "relationships" : [ {
+            "description" : "Retrieves transactions from storage",
+            "destinationId" : "12",
+            "id" : "35",
+            "properties" : {
+              "structurizr.dsl.identifier" : "dbacbabb-cc35-4441-860f-02a0db92077f"
+            },
+            "sourceId" : "14",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Retrieves transactions from banks",
+            "destinationId" : "8",
+            "id" : "36",
+            "properties" : {
+              "structurizr.dsl.identifier" : "d18bcef4-5096-4aef-912c-3a5fa2e0616e"
+            },
+            "sourceId" : "14",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Collects transactions for the current cycle and returns them with a net total balance",
+          "documentation" : { },
+          "id" : "15",
+          "name" : "Expenses Calculator",
+          "properties" : {
+            "structurizr.dsl.identifier" : "calculator"
+          },
+          "relationships" : [ {
+            "description" : "Retrieve debt",
+            "destinationId" : "9",
+            "id" : "33",
+            "properties" : {
+              "structurizr.dsl.identifier" : "74250cd9-3bac-4ea5-b767-6537d272e97d"
+            },
+            "sourceId" : "15",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Retrieves transactions",
+            "destinationId" : "14",
+            "id" : "34",
+            "properties" : {
+              "structurizr.dsl.identifier" : "0cdebf7d-15b0-4c61-8c79-fac793692dbb"
+            },
+            "sourceId" : "15",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Saves new and updated transactions for historical record",
+          "documentation" : { },
+          "id" : "16",
+          "name" : "Transaction Saver",
+          "properties" : {
+            "structurizr.dsl.identifier" : "saver"
+          },
+          "relationships" : [ {
+            "description" : "Retrieves transactions",
+            "destinationId" : "14",
+            "id" : "32",
+            "properties" : {
+              "structurizr.dsl.identifier" : "b3234fd7-3ad2-42e1-a1f8-d9a09aaf18ec"
+            },
+            "sourceId" : "16",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Adds/Updates environment variables",
+          "documentation" : { },
+          "id" : "17",
+          "name" : "Configuration manager",
+          "properties" : {
+            "structurizr.dsl.identifier" : "config"
+          },
+          "tags" : "Element,Component"
+        } ],
+        "description" : "Terminal CLI",
+        "documentation" : { },
+        "id" : "6",
+        "name" : "Library",
+        "properties" : {
+          "structurizr.dsl.identifier" : "lib"
+        },
+        "tags" : "Element,Container"
+      }, {
+        "components" : [ {
+          "description" : "Displays payments in a tabular format",
+          "documentation" : { },
+          "id" : "44",
+          "name" : "Payments Table",
+          "properties" : {
+            "structurizr.dsl.identifier" : "payments"
+          },
+          "relationships" : [ {
+            "description" : "Includes",
+            "destinationId" : "45",
+            "id" : "51",
+            "properties" : {
+              "structurizr.dsl.identifier" : "be95b872-a14f-47d3-adf1-24cea2e447b0"
+            },
+            "sourceId" : "44",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Includes",
+            "destinationId" : "46",
+            "id" : "52",
+            "properties" : {
+              "structurizr.dsl.identifier" : "2d3ab943-8846-40ad-8cdb-9b45ca8f824c"
+            },
+            "sourceId" : "44",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads the payments list",
+            "destinationId" : "49",
+            "id" : "53",
+            "properties" : {
+              "structurizr.dsl.identifier" : "390f761f-9822-4fee-93b3-61a44f10f70f"
+            },
+            "sourceId" : "44",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Toggles the integration of transactions with Splitwise, enabling selective recording of shared expenses",
+          "documentation" : { },
+          "id" : "45",
+          "name" : "Splitwise Checkbox",
+          "properties" : {
+            "structurizr.dsl.identifier" : "splitwisecheckbox"
+          },
+          "relationships" : [ {
+            "description" : "Reads/Updates the transaction splitting information",
+            "destinationId" : "12",
+            "id" : "54",
+            "properties" : {
+              "structurizr.dsl.identifier" : "a9ff4ff1-3343-484b-8479-b4a6a4a41c28"
+            },
+            "sourceId" : "45",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads/Updates the transaction splitting information",
+            "destinationId" : "6",
+            "id" : "55",
+            "linkedRelationshipId" : "54",
+            "sourceId" : "45"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Ignores payment when in table and when calculating the total",
+          "documentation" : { },
+          "id" : "46",
+          "name" : "Ignore Button",
+          "properties" : {
+            "structurizr.dsl.identifier" : "ignore"
+          },
+          "relationships" : [ {
+            "description" : "Triggers cache refresh",
+            "destinationId" : "49",
+            "id" : "59",
+            "properties" : {
+              "structurizr.dsl.identifier" : "e3084f46-faa3-4d4f-bb00-d6f40ce5c0e6"
+            },
+            "sourceId" : "46",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Configures",
+            "destinationId" : "13",
+            "id" : "60",
+            "properties" : {
+              "structurizr.dsl.identifier" : "a7be2d9b-92cc-48b3-a741-ae2b170d0a7d"
+            },
+            "sourceId" : "46",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Configures",
+            "destinationId" : "6",
+            "id" : "61",
+            "linkedRelationshipId" : "60",
+            "sourceId" : "46"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Reloads payments data from Plaid from",
+          "documentation" : { },
+          "id" : "47",
+          "name" : "Refresh Button",
+          "properties" : {
+            "structurizr.dsl.identifier" : "refresh"
+          },
+          "relationships" : [ {
+            "description" : "Triggers cache refresh",
+            "destinationId" : "49",
+            "id" : "58",
+            "properties" : {
+              "structurizr.dsl.identifier" : "37f36218-227f-4ac8-986d-2636a9469aaf"
+            },
+            "sourceId" : "47",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Webhook to reload payments data from Plaid",
+          "documentation" : { },
+          "id" : "48",
+          "name" : "API Service",
+          "properties" : {
+            "structurizr.dsl.identifier" : "api"
+          },
+          "relationships" : [ {
+            "description" : "Trigger cache refresh",
+            "destinationId" : "49",
+            "id" : "63",
+            "properties" : {
+              "structurizr.dsl.identifier" : "206add11-22e4-4d9f-aeb2-1f063d226eff"
+            },
+            "sourceId" : "48",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Caches the payments data to avoid repetetive API calls",
+          "documentation" : { },
+          "id" : "49",
+          "name" : "Payments Cache",
+          "properties" : {
+            "structurizr.dsl.identifier" : "cache"
+          },
+          "relationships" : [ {
+            "description" : "Retrieves payments data",
+            "destinationId" : "15",
+            "id" : "64",
+            "properties" : {
+              "structurizr.dsl.identifier" : "95ba338b-964f-4c6e-877f-33028ae06ae4"
+            },
+            "sourceId" : "49",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Retrieves payments data",
+            "destinationId" : "6",
+            "id" : "65",
+            "linkedRelationshipId" : "64",
+            "sourceId" : "49"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Displays and configures user credentials",
+          "documentation" : { },
+          "id" : "50",
+          "name" : "Admin Page",
+          "properties" : {
+            "structurizr.dsl.identifier" : "admin"
+          },
+          "relationships" : [ {
+            "description" : "Retrieves and sets credentials",
+            "destinationId" : "17",
+            "id" : "67",
+            "properties" : {
+              "structurizr.dsl.identifier" : "6b798928-f76e-47f3-bf19-3b81c83d07d0"
+            },
+            "sourceId" : "50",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Retrieves and sets credentials",
+            "destinationId" : "6",
+            "id" : "68",
+            "linkedRelationshipId" : "67",
+            "sourceId" : "50"
+          } ],
+          "tags" : "Element,Component"
+        } ],
+        "description" : "Web application that includes a library of components as the CLI",
+        "documentation" : { },
+        "id" : "43",
+        "name" : "Web Application",
+        "properties" : {
+          "structurizr.dsl.identifier" : "webapp"
+        },
+        "relationships" : [ {
+          "description" : "Reads/Updates the transaction splitting information",
+          "destinationId" : "12",
+          "id" : "56",
+          "linkedRelationshipId" : "54",
+          "sourceId" : "43"
+        }, {
+          "description" : "Reads/Updates the transaction splitting information",
+          "destinationId" : "6",
+          "id" : "57",
+          "linkedRelationshipId" : "54",
+          "sourceId" : "43"
+        }, {
+          "description" : "Configures",
+          "destinationId" : "13",
+          "id" : "62",
+          "linkedRelationshipId" : "60",
+          "sourceId" : "43"
+        }, {
+          "description" : "Retrieves payments data",
+          "destinationId" : "15",
+          "id" : "66",
+          "linkedRelationshipId" : "64",
+          "sourceId" : "43"
+        }, {
+          "description" : "Retrieves and sets credentials",
+          "destinationId" : "17",
+          "id" : "69",
+          "linkedRelationshipId" : "67",
+          "sourceId" : "43"
+        } ],
+        "tags" : "Element,Container"
+      } ],
+      "description" : "A command-line interface for tracking financial transactions",
+      "documentation" : { },
+      "id" : "3",
+      "location" : "Unspecified",
+      "name" : "Transaction Tracker",
+      "properties" : {
+        "structurizr.dsl.identifier" : "tracker"
+      },
+      "tags" : "Element,Software System"
+    } ]
+  },
+  "name" : "Name",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlIHsKICBtb2RlbCB7CiAgICB1c2VyID0gcGVyc29uICJVc2VyIiB7CiAgICAgIGRlc2NyaXB0aW9uICJUaGUgcGVyc29uIHdob3NlIHRyYW5zY2F0aW9ucyBhcmUgYmVpbmcgdHJhY2tlZCBpbiB0aGlzIGRlcGxveW1lbnQgb2YgdGhlIHN5c3RlbSIKICAgIH0KCiAgICBjcm9uSm9iID0gcGVyc29uICJDcm9uIEpvYiIgewogICAgICBkZXNjcmlwdGlvbiAiQ3JvbiBqb2IgdGhhdCBydW5zIGV2ZXJ5IG1vcm5pbmcgYXQgNkFNIgogICAgfQoKICAgIHRyYWNrZXIgPSBzb2Z0d2FyZVN5c3RlbSAiVHJhbnNhY3Rpb24gVHJhY2tlciIgewogICAgICBkZXNjcmlwdGlvbiAiQSBjb21tYW5kLWxpbmUgaW50ZXJmYWNlIGZvciB0cmFja2luZyBmaW5hbmNpYWwgdHJhbnNhY3Rpb25zIgoKICAgICAgY29tbWFuZGVyQ29udGFpbmVyID0gY29udGFpbmVyICJDb21tYW5kZXIiIHsKICAgICAgICBjb21tYW5kZXIgPSBjb21wb25lbnQgIkNvbW1hbmRlciIgewogICAgICAgICAgZGVzY3JpcHRpb24gIkludGVycHJldHMgdXNlciBjb21tYW5kcyBhbmQgY29vcmRpbmF0ZXMgdGhlIGZsb3cgb2YgZGF0YSBiZXR3ZWVuIGNvbXBvbmVudHMiCiAgICAgICAgfQogICAgICB9CgogICAgICBsaWIgPSBjb250YWluZXIgIkxpYnJhcnkiIHsKICAgICAgICBkZXNjcmlwdGlvbiAiVGVybWluYWwgQ0xJIgogICAgICAgIAogICAgICAgIHB1c2hidWxsZXQgPSBjb21wb25lbnQgIlB1c2hidWxsZXQgQ29ubmVjdG9yIiB7CiAgICAgICAgICBkZXNjcmlwdGlvbiAiQ29ubmVjdHMgdG8gUHVzaGJ1bGxldCBmb3Igc2VuZGluZyBub3RpZmljYXRpb25zIHRvIHRoZSB1c2VyJ3MgZGV2aWNlcyIKICAgICAgICB9CiAgICAgICAgcGxhaWQgPSBjb21wb25lbnQgIlBsYWlkIENvbm5lY3RvciIgewogICAgICAgICAgZGVzY3JpcHRpb24gIkludGVncmF0ZXMgd2l0aCB0aGUgUGxhaWQgQVBJIHRvIHJldHJpZXZlIHRyYW5zYWN0aW9uIGRhdGEgZnJvbSB2YXJpb3VzIGJhbmtzIgogICAgICAgIH0KICAgICAgICBzcGxpdHdpc2UgPSBjb21wb25lbnQgIlNwbGl0d2lzZSBDb25uZWN0b3IiIHsKICAgICAgICAgIGRlc2NyaXB0aW9uICJDb25uZWN0cyB0byBTcGxpdHdpc2UgdG8gcmV0cmlldmUgc2hhcmVkIGV4cGVuc2VzIgogICAgICAgIH0KICAgICAgICBwcmludGVyID0gY29tcG9uZW50ICJUcmFuc2FjdGlvbiBQcmludGVyIiB7CiAgICAgICAgICBkZXNjcmlwdGlvbiAiRm9ybWF0cyBhbmQgcHJpbnRzIHRoZSB0cmFuc2FjdGlvbiBkYXRhIGluIGEgdXNlci1mcmllbmRseSBDTEkgdGFibGUiCiAgICAgICAgfQogICAgICAgIGRhdGUgPSBjb21wb25lbnQgIkRhdGUgQ3ljbGUgRGV0ZWN0b3IiIHsKICAgICAgICAgIGRlc2NyaXB0aW9uICJEZXRlY3RzIHRoZSBkYXRlIHJhbmdlIGZvciB0cmFuc2FjdGlvbnMgdG8gYmUgcmV0cmlldmVkLCBmb2N1c2luZyBvbiB0aGUgY3ljbGUgdGhhdCB0b2RheSBpcyBpbiIKICAgICAgICB9CiAgICAgICAgZGF0YWJhc2VDb25uZWN0b3IgPSBjb21wb25lbnQgIkRhdGFiYXNlIENvbm5lY3RvciIgewogICAgICAgICAgZGVzY3JpcHRpb24gIlN0b3JlcyB0cmFuc2FjdGlvbiBkYXRhIGxvY2FsbHkgZm9yIHF1aWNrIGFjY2VzcyBhbmQgbWFuaXB1bGF0aW9uIgogICAgICAgIH0KICAgICAgICBmaWx0ZXIgPSBjb21wb25lbnQgIlRyYW5zYWN0aW9uIEZpbHRlciIgewogICAgICAgICAgZGVzY3JpcHRpb24gIkZpbHRlcnMgdHJhbnNhY3Rpb25zIGJhc2VkIG9uIGNvbmZpZ3VyYXRpb24gdGhhdCBzcGVjaWZ5IHRyYW5zYWN0aW9ucyBhbmQgcGF0dGVybnMgdG8gaWdub3JlLiBJdCBhbHNvIHByb3ZpZGVzIGEgdXNlci1mcmllbmRseSBpbnRlcmZhY2UgdG8gaWdub3JlIHRyYW5zYWN0aW9ucyIKICAgICAgICB9CiAgICAgICAgcmV0cmlldmVyID0gY29tcG9uZW50ICJUcmFuc2FjdGlvbiBSZXRyaWV2ZXIiIHsKICAgICAgICAgIGRlc2NyaXB0aW9uICJSZXRyaWV2ZXMgdHJhbnNhY3Rpb25zIGZyb20gdGhlIGRhdGFiYXNlIGFuZCBleHRlcm5hbCBBUElzIgogICAgICAgIH0KICAgICAgICBjYWxjdWxhdG9yID0gY29tcG9uZW50ICJFeHBlbnNlcyBDYWxjdWxhdG9yIiB7CiAgICAgICAgICBkZXNjcmlwdGlvbiAiQ29sbGVjdHMgdHJhbnNhY3Rpb25zIGZvciB0aGUgY3VycmVudCBjeWNsZSBhbmQgcmV0dXJucyB0aGVtIHdpdGggYSBuZXQgdG90YWwgYmFsYW5jZSIKICAgICAgICB9CiAgICAgICAgc2F2ZXIgPSBjb21wb25lbnQgIlRyYW5zYWN0aW9uIFNhdmVyIiB7CiAgICAgICAgICBkZXNjcmlwdGlvbiAiU2F2ZXMgbmV3IGFuZCB1cGRhdGVkIHRyYW5zYWN0aW9ucyBmb3IgaGlzdG9yaWNhbCByZWNvcmQiCiAgICAgICAgfQogICAgICAgIGNvbmZpZyA9IGNvbXBvbmVudCAiQ29uZmlndXJhdGlvbiBtYW5hZ2VyIiB7CiAgICAgICAgICBkZXNjcmlwdGlvbiAiQWRkcy9VcGRhdGVzIGVudmlyb25tZW50IHZhcmlhYmxlcyIKICAgICAgICB9CgogICAgICAgIGNvbW1hbmRlciAtPiBwdXNoYnVsbGV0ICJDb21tYW5kcyBzZW5kaW5nIG5vdGlmaWNhdGlvbiIKICAgICAgICBjb21tYW5kZXIgLT4gcHJpbnRlciAiQ29tbWFuZHMgcHJpbnRpbmcgb2YgdHJhbnNhY3Rpb25zIGluIHRoZSBDTEkiCiAgICAgICAgY29tbWFuZGVyIC0+IGRhdGUgIlJlcXVlc3RzIGN5Y2xlIHRoYXQgdG9kYXkgaXMgaW4iCiAgICAgICAgY29tbWFuZGVyIC0+IGNhbGN1bGF0b3IgIlJlcXVlc3RzIGV4cGVuc2VzIGFuZCBiYWxhbmNlIgogICAgICAgIGNvbW1hbmRlciAtPiBmaWx0ZXIgIkNvbmZpZ3VyZXMiCiAgICAgICAgY29tbWFuZGVyIC0+IHNhdmVyICJTYXZlcyB0cmFuc2FjdGlvbnMiCiAgICAgICAgc2F2ZXIgLT4gcmV0cmlldmVyICJSZXRyaWV2ZXMgdHJhbnNhY3Rpb25zIgogICAgICAgIGNhbGN1bGF0b3IgLT4gc3BsaXR3aXNlICJSZXRyaWV2ZSBkZWJ0IgogICAgICAgIGNhbGN1bGF0b3IgLT4gcmV0cmlldmVyICJSZXRyaWV2ZXMgdHJhbnNhY3Rpb25zIgogICAgICAgIHJldHJpZXZlciAtPiBkYXRhYmFzZUNvbm5lY3RvciAiUmV0cmlldmVzIHRyYW5zYWN0aW9ucyBmcm9tIHN0b3JhZ2UiCiAgICAgICAgcmV0cmlldmVyIC0+IHBsYWlkICJSZXRyaWV2ZXMgdHJhbnNhY3Rpb25zIGZyb20gYmFua3MiCiAgICAgICAgZmlsdGVyIC0+IGRhdGFiYXNlQ29ubmVjdG9yICJTYXZlcy9SZXRyaWV2ZXMgY29uZmlndXJhdGlvbiIKICAgICAgICBmaWx0ZXIgLT4gcGxhaWQgIlJldHJpZXZlcyB0cmFuc2FjdGlvbnMgZnJvbSBiYW5rcyIKICAgICAgICBmaWx0ZXIgLT4gZGF0ZSAiUmVxdWVzdHMgY3ljbGUgdGhhdCB0b2RheSBpcyBpbiIKICAgICAgICBzcGxpdHdpc2UgLT4gY29uZmlnICJSZXRyaWV2ZXMgc3BsaXR3aXNlIGNyZWRlbnRpYWxzIgogICAgICAgIHB1c2hidWxsZXQgLT4gY29uZmlnICJSZXRyaWV2ZXMgcHVzaGJ1bGxldCBjcmVkZW50aWFscyIKICAgICAgICBwbGFpZCAtPiBjb25maWcgIlJldHJpZXZlcyBwbGFpZCAmIGJhbmsgY3JlZGVudGlhbHMiCiAgICAgIH0KCiAgICAgIHdlYkFwcCA9IGNvbnRhaW5lciAiV2ViIEFwcGxpY2F0aW9uIiB7CiAgICAgICAgZGVzY3JpcHRpb24gIldlYiBhcHBsaWNhdGlvbiB0aGF0IGluY2x1ZGVzIGEgbGlicmFyeSBvZiBjb21wb25lbnRzIGFzIHRoZSBDTEkiCgogICAgICAgIHBheW1lbnRzID0gY29tcG9uZW50ICJQYXltZW50cyBUYWJsZSIgewogICAgICAgICAgZGVzY3JpcHRpb24gIkRpc3BsYXlzIHBheW1lbnRzIGluIGEgdGFidWxhciBmb3JtYXQiCiAgICAgICAgfQoKICAgICAgICBzcGxpdHdpc2VDaGVja2JveCA9IGNvbXBvbmVudCAiU3BsaXR3aXNlIENoZWNrYm94IiB7CiAgICAgICAgICBkZXNjcmlwdGlvbiAiVG9nZ2xlcyB0aGUgaW50ZWdyYXRpb24gb2YgdHJhbnNhY3Rpb25zIHdpdGggU3BsaXR3aXNlLCBlbmFibGluZyBzZWxlY3RpdmUgcmVjb3JkaW5nIG9mIHNoYXJlZCBleHBlbnNlcyIKICAgICAgICB9CgogICAgICAgIGlnbm9yZSA9IGNvbXBvbmVudCAiSWdub3JlIEJ1dHRvbiIgewogICAgICAgICAgZGVzY3JpcHRpb24gIklnbm9yZXMgcGF5bWVudCB3aGVuIGluIHRhYmxlIGFuZCB3aGVuIGNhbGN1bGF0aW5nIHRoZSB0b3RhbCIKICAgICAgICB9CgogICAgICAgIHJlZnJlc2ggPSBjb21wb25lbnQgIlJlZnJlc2ggQnV0dG9uIiB7CiAgICAgICAgICBkZXNjcmlwdGlvbiAiUmVsb2FkcyBwYXltZW50cyBkYXRhIGZyb20gUGxhaWQgZnJvbSIKICAgICAgICB9CgogICAgICAgIGFwaSA9IGNvbXBvbmVudCAiQVBJIFNlcnZpY2UiIHsKICAgICAgICAgIGRlc2NyaXB0aW9uICJXZWJob29rIHRvIHJlbG9hZCBwYXltZW50cyBkYXRhIGZyb20gUGxhaWQiCiAgICAgICAgfQoKICAgICAgICBjYWNoZSA9IGNvbXBvbmVudCAiUGF5bWVudHMgQ2FjaGUiIHsKICAgICAgICAgIGRlc2NyaXB0aW9uICJDYWNoZXMgdGhlIHBheW1lbnRzIGRhdGEgdG8gYXZvaWQgcmVwZXRldGl2ZSBBUEkgY2FsbHMiCiAgICAgICAgfQoKICAgICAgICBhZG1pbiA9IGNvbXBvbmVudCAiQWRtaW4gUGFnZSIgewogICAgICAgICAgZGVzY3JpcHRpb24gIkRpc3BsYXlzIGFuZCBjb25maWd1cmVzIHVzZXIgY3JlZGVudGlhbHMiCiAgICAgICAgfQoKICAgICAgICBwYXltZW50cyAtPiBzcGxpdHdpc2VDaGVja2JveCAiSW5jbHVkZXMiCiAgICAgICAgcGF5bWVudHMgLT4gaWdub3JlICJJbmNsdWRlcyIKICAgICAgICBwYXltZW50cyAtPiBjYWNoZSAiUmVhZHMgdGhlIHBheW1lbnRzIGxpc3QiCiAgICAgICAgc3BsaXR3aXNlQ2hlY2tib3ggLT4gZGF0YWJhc2VDb25uZWN0b3IgIlJlYWRzL1VwZGF0ZXMgdGhlIHRyYW5zYWN0aW9uIHNwbGl0dGluZyBpbmZvcm1hdGlvbiIKICAgICAgICByZWZyZXNoIC0+IGNhY2hlICJUcmlnZ2VycyBjYWNoZSByZWZyZXNoIgogICAgICAgIGlnbm9yZSAtPiBjYWNoZSAiVHJpZ2dlcnMgY2FjaGUgcmVmcmVzaCIKICAgICAgICBpZ25vcmUgLT4gZmlsdGVyICJDb25maWd1cmVzIgogICAgICAgIGFwaSAtPiBjYWNoZSAiVHJpZ2dlciBjYWNoZSByZWZyZXNoIgogICAgICAgIGNhY2hlIC0+IGNhbGN1bGF0b3IgIlJldHJpZXZlcyBwYXltZW50cyBkYXRhIgogICAgICAgIGFkbWluIC0+IGNvbmZpZyAiUmV0cmlldmVzIGFuZCBzZXRzIGNyZWRlbnRpYWxzIgogICAgICB9CiAgICB9CiAgICAKICAgIHVzZXIgLT4gY29tbWFuZGVyICJSZXF1ZXN0cyB0YWJsZSBvZiB0cmFuc2FjdGlvbnMgaW4gdGhlIGN1cnJlbnQgY3ljbGUiCiAgICB1c2VyIC0+IGNvbW1hbmRlciAiSWdub3JlIGNlcnRhaW4gdHJhbnNhY3Rpb25zIgogICAgdXNlciAtPiBjb21tYW5kZXIgIlNob3cgaWdub3JlZCB0cmFuc2FjdGlvbnMiCiAgICB1c2VyIC0+IGNvbW1hbmRlciAiUmVzZXQgaWdub3JlZCB0cmFuc2FjdGlvbnMiCiAgICB1c2VyIC0+IGNvbW1hbmRlciAiU2F2ZSB0cmFuc2FjdGlvbnMgaW4gY3N2IgogICAgdXNlciAtPiBjb21tYW5kZXIgIlJlLXNpZ24gaW4gdG8gKGFuZCB1cGRhdGUgdGhlIHN0b3JlZCBjcmVkZW50aWFscyBmb3IpIGEgY2VydGFpbiBiYW5rIgogICAgdXNlciAtPiByZWZyZXNoICJSZXF1ZXN0IHJlbG9hZGluZyBvZiBwYXltZW50cyIKICAgIGNyb25Kb2IgLT4gY29tbWFuZGVyICJTZW5kIG5vdGlmaWNhdGlvbiB0byB1c2VyIgogICAgY29tbWFuZGVyIC0+IGFwaSAiUmVmcmVzaGVzIGFuZCByZXRyaWV2ZXMgYmFsYW5jZSIKICB9CiAgdmlld3MgewogICAgc3lzdGVtQ29udGV4dCB0cmFja2VyICJUcmFja2VyQXJjaGl0ZWN0dXJlIiB7CiAgICAgIGluY2x1ZGUgKgogICAgfQogICAgY29tcG9uZW50IGxpYiB7CiAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgYXV0b0xheW91dCB0YgogICAgfQogICAgY29tcG9uZW50IHdlYkFwcCB7CiAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgYXV0b0xheW91dCB0YgogICAgfQogICAgdGhlbWUgZGVmYXVsdAogIH0KICBjb25maWd1cmF0aW9uIHsKICAgIHNjb3BlIHNvZnR3YXJlc3lzdGVtCiAgfQp9Cg=="
+  },
+  "views" : {
+    "componentViews" : [ {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "containerId" : "6",
+      "dimensions" : {
+        "height" : 3791,
+        "width" : 4108
+      },
+      "elements" : [ {
+        "id" : "4",
+        "x" : 2378,
+        "y" : 200
+      }, {
+        "id" : "7",
+        "x" : 3437,
+        "y" : 2600
+      }, {
+        "id" : "8",
+        "x" : 1937,
+        "y" : 2600
+      }, {
+        "id" : "9",
+        "x" : 878,
+        "y" : 2000
+      }, {
+        "id" : "10",
+        "x" : 2378,
+        "y" : 1400
+      }, {
+        "id" : "11",
+        "x" : 2687,
+        "y" : 2600
+      }, {
+        "id" : "12",
+        "x" : 1187,
+        "y" : 2600
+      }, {
+        "id" : "13",
+        "x" : 2378,
+        "y" : 2000
+      }, {
+        "id" : "14",
+        "x" : 1628,
+        "y" : 2000
+      }, {
+        "id" : "15",
+        "x" : 878,
+        "y" : 1400
+      }, {
+        "id" : "16",
+        "x" : 1628,
+        "y" : 1400
+      }, {
+        "id" : "17",
+        "x" : 1408,
+        "y" : 3200
+      }, {
+        "id" : "43",
+        "x" : 199,
+        "y" : 800
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Component-001",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "20",
+        "vertices" : [ {
+          "x" : 3362,
+          "y" : 800
+        } ]
+      }, {
+        "id" : "23"
+      }, {
+        "id" : "25",
+        "vertices" : [ {
+          "x" : 3103,
+          "y" : 800
+        }, {
+          "x" : 3208,
+          "y" : 1296
+        }, {
+          "x" : 3208,
+          "y" : 1700
+        } ]
+      }, {
+        "id" : "27"
+      }, {
+        "id" : "29",
+        "vertices" : [ {
+          "x" : 2833,
+          "y" : 800
+        }, {
+          "x" : 2978,
+          "y" : 1296
+        }, {
+          "x" : 2978,
+          "y" : 1700
+        } ]
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "35"
+      }, {
+        "id" : "36"
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "38"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "40",
+        "vertices" : [ {
+          "x" : 1037,
+          "y" : 2600
+        }, {
+          "x" : 1037,
+          "y" : 2900
+        } ]
+      }, {
+        "id" : "41",
+        "vertices" : [ {
+          "x" : 3287,
+          "y" : 2900
+        } ]
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "56",
+        "vertices" : [ {
+          "x" : 491,
+          "y" : 1700
+        }, {
+          "x" : 728,
+          "y" : 2300
+        } ]
+      }, {
+        "id" : "62",
+        "vertices" : [ {
+          "x" : 728,
+          "y" : 1700
+        }, {
+          "x" : 2228,
+          "y" : 2000
+        } ]
+      }, {
+        "id" : "66"
+      }, {
+        "id" : "69",
+        "vertices" : [ {
+          "x" : 378,
+          "y" : 1296
+        }, {
+          "x" : 378,
+          "y" : 1700
+        }, {
+          "x" : 533,
+          "y" : 2300
+        }, {
+          "x" : 962,
+          "y" : 2900
+        } ]
+      }, {
+        "id" : "86"
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "containerId" : "43",
+      "dimensions" : {
+        "height" : 3100,
+        "width" : 4217
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 903,
+        "y" : 199
+      }, {
+        "id" : "4",
+        "x" : 199,
+        "y" : 799
+      }, {
+        "id" : "6",
+        "x" : 2699,
+        "y" : 2599
+      }, {
+        "id" : "44",
+        "x" : 2666,
+        "y" : 799
+      }, {
+        "id" : "45",
+        "x" : 3416,
+        "y" : 1399
+      }, {
+        "id" : "46",
+        "x" : 2666,
+        "y" : 1399
+      }, {
+        "id" : "47",
+        "x" : 1608,
+        "y" : 1399
+      }, {
+        "id" : "48",
+        "x" : 858,
+        "y" : 1399
+      }, {
+        "id" : "49",
+        "x" : 2020,
+        "y" : 1999
+      }, {
+        "id" : "50",
+        "x" : 3416,
+        "y" : 799
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Component-002",
+      "order" : 3,
+      "relationships" : [ {
+        "id" : "21",
+        "vertices" : [ {
+          "x" : 678,
+          "y" : 2403
+        } ]
+      }, {
+        "id" : "51"
+      }, {
+        "id" : "52"
+      }, {
+        "id" : "53",
+        "vertices" : [ {
+          "x" : 2516,
+          "y" : 1399
+        } ]
+      }, {
+        "id" : "55",
+        "vertices" : [ {
+          "x" : 3137,
+          "y" : 2403
+        } ]
+      }, {
+        "id" : "58"
+      }, {
+        "id" : "59"
+      }, {
+        "id" : "61"
+      }, {
+        "id" : "63"
+      }, {
+        "id" : "65"
+      }, {
+        "id" : "68",
+        "vertices" : [ {
+          "x" : 4016,
+          "y" : 1399
+        }, {
+          "x" : 4016,
+          "y" : 1699
+        }, {
+          "x" : 3483,
+          "y" : 2403
+        } ]
+      }, {
+        "id" : "71",
+        "vertices" : [ {
+          "x" : 678,
+          "y" : 695
+        } ]
+      }, {
+        "id" : "78"
+      }, {
+        "id" : "85"
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "TrackerArchitecture",
+      "metadataSymbols" : "SquareBrackets",
+      "styles" : { },
+      "terminology" : { },
+      "themes" : [ "https://static.structurizr.com/themes/default/theme.json" ]
+    },
+    "systemContextViews" : [ {
+      "dimensions" : {
+        "height" : 1748,
+        "width" : 2480
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 405,
+        "y" : 60
+      }, {
+        "id" : "2",
+        "x" : 1590,
+        "y" : 50
+      }, {
+        "id" : "3",
+        "x" : 1015,
+        "y" : 724
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "TrackerArchitecture",
+      "order" : 1,
+      "paperSize" : "A5_Landscape",
+      "relationships" : [ {
+        "id" : "72"
+      }, {
+        "id" : "82"
+      } ],
+      "softwareSystemId" : "3"
+    } ]
+  }
+}
